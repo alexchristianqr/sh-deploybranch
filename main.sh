@@ -44,55 +44,13 @@ error_args_general() {
   exit 1
 }
 
-# PROCESAR ARGUMENTOS
-process_args() {
-  if [ -z "$1" ]; then
-    error_args_general
-  fi
-
-  # ITERAR ARGUMENTOS CLI
-  for ARGUMENT in "$@"; do
-
-    KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
-
-    # SET LLAVE Y VALOR
-    KEY_LENGTH=${#KEY}
-    VALUE="${ARGUMENT:$KEY_LENGTH+1}"
-
-    # VALIDAR LLAVE
-    if [[ "$KEY" ]]; then
-      if [[ "$KEY" == '--dir' ]] || [[ "$KEY" == '--directory' ]]; then
-
-        VALUE_DIRECTORY="$VALUE"
-
-      elif [[ "$KEY" == '--tag' ]]; then
-
-        VALUE_TAG="$VALUE"
-
-      else
-        error_args_general
-      fi
-    else
-      error_args_general
-    fi
-
-    echo "CORRECTO: $KEY=$VALUE"
-  done
-
-  # CREAR TAG
-  add_tag
-
-  # EJECUTAR ACTION IN GITHUB PAGES
-  deploy_to_ghpages
-}
-
 # AGREGAR TAG
 add_tag() {
   TAG="$VALUE_TAG"
 
   set -e
 
-  git tag -a -m "new tag release v$TAG" "v$TAG"
+  git tag -a -m "New tag release v$TAG" "v$TAG"
 }
 
 # DESPLEGAR EN GITHUB PAGES
@@ -115,6 +73,50 @@ deploy_to_ghpages() {
   git push -f "git@github.com:$REPOSITORY.git" "$BRANCH:gh-pages"
 
   cd -
+}
+
+# PROCESAR ARGUMENTOS
+process_args() {
+  if [ -z "$1" ]; then
+    error_args_general
+  fi
+
+  # ITERAR ARGUMENTOS CLI
+  for ARGUMENT in "$@"; do
+
+    KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
+
+    # SET LLAVE Y VALOR
+    KEY_LENGTH=${#KEY}
+    VALUE="${ARGUMENT:$KEY_LENGTH+1}"
+
+    # VALIDAR LLAVE
+    if [[ "$KEY" ]]; then
+      if [[ "$KEY" == '-t' ]] || [[ "$KEY" == '--tag' ]]; then
+        VALUE_TAG="$VALUE"
+      elif [[ "$KEY" == '-d' ]] || [[ "$KEY" == '--dir' ]] || [[ "$KEY" == '--directory' ]]; then
+        VALUE_DIRECTORY="$VALUE"
+      elif [[ "$KEY" == '-b' ]] || [[ "$KEY" == '--branch' ]]; then
+        VALUE_BRANCH="$VALUE"
+      elif [[ "$KEY" == '--exec' ]]; then
+        VALUE_EXEC="$VALUE"
+      elif [[ "$KEY" == '--repository' ]]; then
+        VALUE_REPOSITORY="$VALUE"
+      else
+        error_args_general
+      fi
+    else
+      error_args_general
+    fi
+
+    echo "CORRECTO: $KEY=$VALUE"
+  done
+
+  # CREAR TAG
+  add_tag
+
+  # EJECUTAR ACTION IN GITHUB PAGES
+  deploy_to_ghpages
 }
 
 # MENU PRINCIPAL
