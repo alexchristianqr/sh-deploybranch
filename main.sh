@@ -7,7 +7,7 @@ KEY=''
 VALUE=''
 
 ## PARA SETEAR EN LA ITERACION DE ARGUMENTOS
-VALUE_TAG='0.0.0'
+VALUE_TAG=''
 VALUE_DIRECTORY='dist'
 VALUE_BRANCH='main'
 VALUE_EXEC='build'
@@ -21,22 +21,21 @@ EXEC=''
 REPOSITORY=''
 
 # MOSTRAR MENSAJE DE ERROR DE ARGUMENTO TAG
-error_arg_level() {
-  echo "SOLUCION: Debes especificar un tag así: --tag=$VALUE"
-  echo "NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
+error_arg_tag() {
+  echo "SOLUCION: Debes especificar un tag así: --tag=0.0.0 (obligatorio) NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
   exit 1
 }
 
 # MOSTRAR MENSAJE DE ERROR DE ARGUMENTO DIRECTORY
 error_arg_directory() {
-  echo "SOLUCION: Debes especificar un directorio así --dir=$VALUE // --directory=$VALUE"
+  echo "SOLUCION: Debes especificar un directorio así --dir=$VALUE // --directory=$VALUE (opcional)"
   exit 1
 }
 
 # MOSTRAR MENSAJE DE ERROR GENERAL
 error_args_general() {
   echo "SOLUCION:"
-  echo "- Debes especificar un tag así: --tag=$VALUE_TAG (requerido) NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
+  echo "- Debes especificar un tag así: --tag=$VALUE_TAG (obligatorio) NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
   echo "- Debes especificar un directorio así: --dir=$VALUE_DIRECTORY // --directory=$VALUE_DIRECTORY (opcional)"
   echo "- Debes especificar un branch así: --branch=$VALUE_BRANCH (opcional)"
   echo "- Debes especificar un exec así: --exec=$VALUE_EXEC (opcional) NOTA: El parametro exec es el comando de compilación de tu proyecto"
@@ -109,8 +108,13 @@ process_args() {
       error_args_general
     fi
 
-    echo "CORRECTO: $KEY=$VALUE"
+    # echo "CORRECTO: $KEY=$VALUE"
   done
+
+  # VALIDAR PARAMETROS REQUERIDOS OBLIGATORIAMENTE
+  if [[ "$VALUE_TAG" == '' ]]; then
+    error_arg_tag
+  fi
 
   # CREAR TAG
   add_tag
