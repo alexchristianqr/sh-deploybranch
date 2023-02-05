@@ -11,7 +11,7 @@ VALUE_TAG='0.0.0'
 VALUE_DIRECTORY='dist'
 VALUE_BRANCH='main'
 VALUE_EXEC='build'
-VALUE_REPOSITORY='alexchristianqr/gmail-ionic-v3'
+VALUE_REPOSITORY='alexchristianqr/sh-ghpages'
 
 ## PARA USAR EN LAS EJECUCIONES
 TAG=''
