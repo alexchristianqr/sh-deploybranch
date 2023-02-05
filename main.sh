@@ -5,10 +5,20 @@ set -e
 # VARIABLES LOCALES
 KEY=''
 VALUE=''
-TAG=''
-DIRECTORY=''
+
+## PARA SETEAR EN LA ITERACION DE ARGUMENTOS
 VALUE_TAG='0.0.0'
 VALUE_DIRECTORY='dist'
+VALUE_BRANCH='main'
+VALUE_EXEC='build'
+VALUE_REPOSITORY='alexchristianqr/gmail-ionic-v3'
+
+## PARA USAR EN LAS EJECUCIONES
+TAG=''
+DIRECTORY=''
+BRANCH=''
+EXEC=''
+REPOSITORY=''
 
 # MOSTRAR MENSAJE DE ERROR DE ARGUMENTO TAG
 error_arg_level() {
@@ -26,9 +36,11 @@ error_arg_directory() {
 # MOSTRAR MENSAJE DE ERROR GENERAL
 error_args_general() {
   echo "SOLUCION:"
-  echo "- Debes especificar un tag así: --tag=$VALUE_TAG"
-  echo "  NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
-  echo "- Debes especificar un directorio así: --dir=$VALUE_DIRECTORY // --directory=$VALUE_DIRECTORY"
+  echo "- Debes especificar un tag así: --tag=$VALUE_TAG (requerido) NOTA: La estructura de un tag es [NivelMayor.NivelMenor.NivelBugfix]"
+  echo "- Debes especificar un directorio así: --dir=$VALUE_DIRECTORY // --directory=$VALUE_DIRECTORY (opcional)"
+  echo "- Debes especificar un branch así: --branch=$VALUE_BRANCH (opcional)"
+  echo "- Debes especificar un exec así: --exec=$VALUE_EXEC (opcional) NOTA: El parametro exec es el comando de compilación de tu proyecto"
+  echo "- Debes especificar un repositorio así: --repository=$VALUE_REPOSITORY (opcional)"
   exit 1
 }
 
@@ -65,7 +77,7 @@ process_args() {
       error_args_general
     fi
 
-    echo "CORRECTO: $DIRECTORY"
+    echo "CORRECTO: $KEY=$VALUE"
   done
 
   # EJECUTAR ACTION IN GITHUB PAGES
@@ -75,7 +87,6 @@ process_args() {
 # AGREGAR TAG
 add_tag() {
   TAG="$VALUE_TAG"
-  DIRECTORY="$VALUE_DIRECTORY"
 
   set -e
 
@@ -86,14 +97,20 @@ add_tag() {
 
 # DESPLEGAR EN GITHUB PAGES
 deploy_to_ghpages() {
-  npm run build
+  EXEC="$VALUE_EXEC"
+  DIRECTORY="$VALUE_DIRECTORY"
+  TAG="$VALUE_TAG"
+  REPOSITORY="$VALUE_REPOSITORY"
+  BRANCH="$VALUE_BRANCH"
+
+  npm run "$EXEC"
 
   cd "$DIRECTORY"
 
   git init
   git add -A
   git commit -m "New deployment for release v$TAG"
-  git push -f git@github.com:alexchristianqr/gmail-ionic-v3.git main:gh-pages
+  git push -f "git@github.com:$REPOSITORY.git" "$BRANCH:gh-pages"
 
   cd -
 }
@@ -105,17 +122,3 @@ main() {
 
 # CONSTRUCTOR
 main "$@"
-
-#for ARGUMENT in "$@"
-#do
-#   KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
-#
-#   KEY_LENGTH=${#KEY}
-#   VALUE="${ARGUMENT:$KEY_LENGTH+1}"
-#
-#   export "$KEY"="$VALUE"
-#done
-#
-## use here your expected variables
-#echo "STEPS = $STEPS"
-#echo "REPOSITORY_NAME = $REPOSITORY_NAME"
