@@ -60,7 +60,6 @@ process_args() {
     VALUE="${ARGUMENT:$KEY_LENGTH+1}"
 
     # VALIDAR LLAVE
-    echo ">>> $KEY"
     if [[ "$KEY" ]]; then
       if [[ "$KEY" == '--dir' ]] || [[ "$KEY" == '--directory' ]]; then
 
@@ -80,6 +79,9 @@ process_args() {
     echo "CORRECTO: $KEY=$VALUE"
   done
 
+  # CREAR TAG
+  add_tag
+
   # EJECUTAR ACTION IN GITHUB PAGES
   deploy_to_ghpages
 }
@@ -90,18 +92,18 @@ add_tag() {
 
   set -e
 
-  #git tag -d "v$tagVersion"
   git tag -a -m "new tag release v$TAG" "v$TAG"
-  git push origin "v$TAG"
 }
 
 # DESPLEGAR EN GITHUB PAGES
 deploy_to_ghpages() {
+  TAG="$VALUE_TAG"
   EXEC="$VALUE_EXEC"
   DIRECTORY="$VALUE_DIRECTORY"
-  TAG="$VALUE_TAG"
   REPOSITORY="$VALUE_REPOSITORY"
   BRANCH="$VALUE_BRANCH"
+
+  git push origin "v$TAG"
 
   npm run "$EXEC"
 
