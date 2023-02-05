@@ -20,5 +20,11 @@ sh main.sh --tag="0.0.0" --exec="build"
 sh main.sh --tag="0.0.0" --repository="alexchristianqr/public-repository"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --dt="true"
+sh main.sh --tag="0.0.0" --deleted-lasttag="true"
+```
+```bash
+sh main.sh --tag="0.0.0" --github-pages="true"
+```
+```bash
+sh main.sh --help
 ```
