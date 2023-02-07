@@ -89,6 +89,8 @@ deploy_to_ghpages() {
     git push -f "git@github.com:$REPOSITORY.git" "$BRANCH:gh-pages"
 
     cd -
+
+    rm -rf "$DIRECTORY"
   else
     exit 1
   fi
