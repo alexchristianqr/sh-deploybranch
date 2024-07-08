@@ -1,30 +1,30 @@
-# Shell to GitHub Pages
+# npm-deploy-branch
 
-Shell script automatizado para recibir multiples parametros que permiten el despliegue de un repositorio público en Github Pages.
+Automatiza el despliegue de ramas de Git en cualquier entorno. Con npm-deploy-branch, puedes crear, gestionar y eliminar tags, así como desplegar el contenido de tus ramas de forma fácil y rápida. Ideal para desarrolladores que buscan simplificar su flujo de trabajo con Git.
 
 ## Steps for usage
 
 ```bash
-sh main.sh --tag="0.0.0"
+sh deploy.sh --tag="0.0.0"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --dir="dist"
+sh deploy.sh --tag="0.0.0" --dir="dist"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --branch="main"
+sh deploy.sh --tag="0.0.0" --branch="main"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --exec="build"
+sh deploy.sh --tag="0.0.0" --exec="build"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --repository="alexchristianqr/public-repository"
+sh deploy.sh --tag="0.0.0" --repository="alexchristianqr/public-repository"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --deleted-lasttag="true"
+sh deploy.sh --tag="0.0.0" --deleted-lasttag="true"
 ```
 ```bash
-sh main.sh --tag="0.0.0" --github-pages="true"
+sh deploy.sh --tag="0.0.0" --github-pages="true"
 ```
 ```bash
-sh main.sh --help
+sh deploy.sh --help
 ```
