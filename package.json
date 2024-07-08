@@ -1,6 +1,6 @@
 {
   "name": "npm-deploy-branch",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Automatiza el despliegue de ramas de Git en cualquier entorno. Con npm-deploy-branch, puedes crear, gestionar y eliminar tags, así como desplegar el contenido de tus ramas de forma fácil y rápida. Ideal para desarrolladores que buscan simplificar su flujo de trabajo con Git.",
   "main": "index.js",
   "scripts": {
