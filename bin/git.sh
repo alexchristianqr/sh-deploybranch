@@ -82,7 +82,6 @@ deploy_branch() {
 
   push_tag # Subir tag remoto
   execute_builder_command # Ejecutar comando de compilación
-  echo "alex: $VALUE_ONLY_PUSH"
 
   cd "$DIRECTORY"
   git init
