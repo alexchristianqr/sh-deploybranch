@@ -4,6 +4,7 @@
 name: Node.js Package
 
 on:
+  workflow_dispatch: # Permite lanzar manualmente el workflow desde GitHub
   release:
     types: [created]
 
