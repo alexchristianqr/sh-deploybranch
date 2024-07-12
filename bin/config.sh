@@ -64,7 +64,7 @@ VALUE_AUTO_DELETED_TAG=${FILE_VALUE_AUTO_DELETED_TAG:-$DEFAULT_AUTO_DELETED_TAG}
 VALUE_REPOSITORY=${FILE_VALUE_REPOSITORY}
 VALUE_DIRECTORY=${FILE_VALUE_DIRECTORY}
 VALUE_BRANCH_LOCAL=${FILE_VALUE_BRANCH_LOCAL}
-VALUE_BRANCH_REMOTE=${FILE_VALUE_BRANCH_REMOTO}
+VALUE_BRANCH_REMOTE=${FILE_VALUE_BRANCH_REMOTE}
 VALUE_TAG=''
 VALUE_ONLY_PUSH=${DEFAULT_ONLY_PUSH}
 
@@ -88,6 +88,7 @@ info() {
   cat << EOF
 [ COMANDOS CLI ]
 -t, --tag ........................... Crea el tag especificado en local y remoto. Estructura recomendada: [Xmayor.Ymenor.Zbugfix]. Depedendecias en YAML: use_tag,auto_deleted_tag
+-p, --push .......................... Hace un simple push
 -h, --help .......................... Ayuda
 
 [ ARCHIVO DE CONFIGURACION YAML ]
