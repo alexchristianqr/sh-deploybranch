@@ -73,6 +73,7 @@ execute_builder_command() {
 
 # Desplegar rama
 deploy_branch() {
+  ONLY_PUSH="$VALUE_ONLY_PUSH"
   TAG="$VALUE_TAG"
   EXEC="$VALUE_EXEC"
   DIRECTORY="$VALUE_DIRECTORY"
@@ -80,17 +81,23 @@ deploy_branch() {
   BRANCH_LOCAL="$VALUE_BRANCH_LOCAL"
   BRANCH_REMOTE="$VALUE_BRANCH_REMOTE"
 
+
   push_tag # Subir tag remoto
   execute_builder_command # Ejecutar comando de compilación
 
-#  cd "$DIRECTORY"
-#  git init
-  git add -A
-  git commit -m "New deployment for release $TAG"
-  git push -f "git@github.com:$REPOSITORY.git" "$BRANCH_LOCAL:$BRANCH_REMOTO"
-  cd -
-
-#  rm -rf "$DIRECTORY"
+  if [[ "$ONLY_PUSH" == true ]]; then
+    git add -A
+    git push -f "git@github.com:$REPOSITORY.git" "$BRANCH_LOCAL:$BRANCH_REMOTE"
+    cd -
+  else
+    cd "$DIRECTORY"
+    git init
+    git add -A
+    git commit -m "New deployment for release $TAG"
+    git push -f "git@github.com:$REPOSITORY.git" "$BRANCH_LOCAL:$BRANCH_REMOTE"
+    cd -
+    rm -rf "$DIRECTORY"
+  fi
 }
 
 # Inicializar operaciones con git
