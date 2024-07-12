@@ -83,14 +83,14 @@ deploy_branch() {
   push_tag # Subir tag remoto
   execute_builder_command # Ejecutar comando de compilación
 
-  cd "$DIRECTORY"
-  git init
+#  cd "$DIRECTORY"
+#  git init
   git add -A
   git commit -m "New deployment for release $TAG"
   git push -f "git@github.com:$REPOSITORY.git" "$BRANCH_LOCAL:$BRANCH_REMOTO"
   cd -
 
-  rm -rf "$DIRECTORY"
+#  rm -rf "$DIRECTORY"
 }
 
 # Inicializar operaciones con git
