@@ -1,5 +1,5 @@
 {
-  "name": "deploybranch",
+  "name": "@alexchristiandev/deploybranch",
   "version": "2.1.0",
   "description": "Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.",
   "main": "./src/start.sh",
@@ -21,7 +21,8 @@
   ],
   "author": {
     "name": "Alex Christian",
-    "email": "alexchristianqr@gmail.com"
+    "email": "alexchristianqr@gmail.com",
+    "url": "https://alexchristianqr.github.io/portfolio/"
   },
   "license": "ISC",
   "bugs": {
