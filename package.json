@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sh bin/start.sh -h"
+    "deploybranch": "./src/start.sh"
   },
   "repository": {
     "type": "git",
