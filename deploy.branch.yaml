@@ -1,6 +1,0 @@
-directory: .
-repository: alexchristianqr/npm-deploy-branch
-branch_local: develop
-branch_remote: develop
-use_exec: false
-use_tag: false

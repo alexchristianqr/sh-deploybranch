@@ -3,11 +3,11 @@
 set -e
 
 # Archivo de configuración por defecto
-DEFAULT_FILE="deploy.branch.yaml"
+DEFAULT_FILE="deploy-branch.yaml"
 
 # Valores por defecto
 DEFAULT_USE_EXEC="true"
-DEFAULT_EXEC="sh bin/start.sh -h,npm run build"
+DEFAULT_EXEC="npm run build"
 DEFAULT_USE_TAG="true"
 DEFAULT_AUTO_DELETED_TAG="true"
 DEFAULT_ONLY_PUSH="false"

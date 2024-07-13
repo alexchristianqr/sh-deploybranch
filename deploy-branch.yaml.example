@@ -1,0 +1,7 @@
+directory: dist
+repository: username/npm-deploy-branch
+branch_local: main
+branch_remote: ghpages
+use_exec: true
+exec: npm run build
+use_tag: true
