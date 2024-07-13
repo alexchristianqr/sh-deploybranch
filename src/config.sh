@@ -3,7 +3,7 @@
 set -e
 
 # Archivo de configuración por defecto
-DEFAULT_FILE="deploy-branch.yaml"
+DEFAULT_FILE="deploybranch.yaml"
 
 # Valores por defecto
 DEFAULT_USE_EXEC="true"
@@ -102,7 +102,7 @@ use_tag ............................. Indica si esta usando tag en el despliegue
 auto_deleted_tag .................... Indica si se debe eliminar automáticamente el último tag registrado antes de crear uno nuevo. Por defecto: true
 
 [ DOCUMENTACION ]
-Repositorio GitHub: https://github.com/alexchristianqr/npm-deploy-branch
+Repositorio GitHub: https://github.com/alexchristianqr/npm-deploybranch
 
 [ AUTOR ]
 Usuario: Alex Christian

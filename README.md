@@ -1,12 +1,12 @@
-# deploy-branch
+# deploybranch
 
 Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.
 
 ## Como usarlo con npm
 ```bash
-npm deploy-branch --help
-npm deploy-branch --tag="1.0.0"
-npm deploy-branch --push
+npm deploybranch --help
+npm deploybranch --tag="1.0.0"
+npm deploybranch --push
 ```
 
 ## Documentación
@@ -27,7 +27,7 @@ use_tag ............................. Indica si esta usando tag en el despliegue
 auto_deleted_tag .................... Indica si se debe eliminar automáticamente el último tag registrado antes de crear uno nuevo. Por defecto: true
 
 [ DOCUMENTACION ]
-Repositorio GitHub: https://github.com/alexchristianqr/npm-deploy-branch
+Repositorio GitHub: https://github.com/alexchristianqr/npm-deploybranch
 
 [ AUTOR ]
 Usuario: Alex Christian
