@@ -1,6 +1,6 @@
 {
   "name": "sh-deploybranch",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.",
   "main": "./src/start.sh",
   "scripts": {
