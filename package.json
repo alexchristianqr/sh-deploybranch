@@ -5,7 +5,7 @@
   "main": "./src/start.sh",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./src/start.sh",
+    "start": "./dist/start.sh",
     "build": "shfmt -w -s ./src/start.sh"
   },
   "repository": {
