@@ -22,7 +22,6 @@ jobs:
           find src -name "*.sh" -type f -exec sh -c '
             for file do
               sed -e "/^\s*#/d; /^\s*$/d; s/[[:space:]]\+/ /g; s/^[[:space:]]*//; s/[[:space:]]*$//" "$file" > "dist/$(basename "$file")"
-              gzip -c "dist/$(basename "$file")" > "dist/$(basename "$file").gz"
             done
           ' sh {} +
 
