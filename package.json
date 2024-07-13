@@ -1,5 +1,5 @@
 {
-  "name": "@alexchristiandev/deploybranch",
+  "name": "sh-deploybranch",
   "version": "2.1.0",
   "description": "Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.",
   "main": "./src/start.sh",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexchristianqr/deploybranch.git"
+    "url": "git+https://github.com/alexchristianqr/sh-deploybranch .git"
   },
   "keywords": [
     "git",
@@ -26,7 +26,7 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexchristianqr/deploybranch/issues"
+    "url": "https://github.com/alexchristianqr/sh-deploybranch /issues"
   },
-  "homepage": "https://github.com/alexchristianqr/deploybranch#readme"
+  "homepage": "https://github.com/alexchristianqr/sh-deploybranch #readme"
 }

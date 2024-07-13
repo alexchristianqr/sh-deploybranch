@@ -102,7 +102,7 @@ use_tag ............................. Indica si esta usando tag en el despliegue
 auto_deleted_tag .................... Indica si se debe eliminar automáticamente el último tag registrado antes de crear uno nuevo. Por defecto: true
 
 [ DOCUMENTACION ]
-Repositorio GitHub: https://github.com/alexchristianqr/npm-deploybranch
+Repositorio GitHub: https://github.com/alexchristianqr/npm-sh-deploybranch
 
 [ AUTOR ]
 Usuario: Alex Christian
