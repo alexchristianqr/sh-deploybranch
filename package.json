@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploybranch": "./src/start.sh"
+    "start": "./src/start.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexchristianqr/npm-deploy-branch.git"
+    "url": "git+https://github.com/alexchristianqr/deploy-branch.git"
   },
   "keywords": [
     "git",
     "branch",
-    "git deploy",
-    "npm deploy",
-    "npm github"
+    "deploy",
+    "github",
+    "release",
+    "tag"
   ],
   "author": {
     "name": "Alex Christian",
@@ -24,7 +25,7 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexchristianqr/npm-deploy-branch/issues"
+    "url": "https://github.com/alexchristianqr/deploy-branch/issues"
   },
-  "homepage": "https://github.com/alexchristianqr/npm-deploy-branch#readme"
+  "homepage": "https://github.com/alexchristianqr/deploy-branch#readme"
 }
