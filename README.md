@@ -1,16 +1,19 @@
-# npm-deploy-branch
+# deploy-branch
 
-Automatiza el despliegue de ramas de Git en cualquier entorno. Con npm-deploy-branch, puedes crear, gestionar y eliminar tags, así como desplegar el contenido de tus ramas de forma fácil y rápida. Ideal para desarrolladores que buscan simplificar su flujo de trabajo con Git.
+Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.
 
-## NPM
+## Como usarlo con npm
 ```bash
-npm deploybranch -t="1.0.0"
+npm deploy-branch --help
+npm deploy-branch --tag="1.0.0"
+npm deploy-branch --push
 ```
 
-## Documentación README
+## Documentación
 ```bash
 [ COMANDOS CLI ]
 -t, --tag ........................... Crea el tag especificado en local y remoto. Estructura recomendada: [Xmayor.Ymenor.Zbugfix]. Depedendecias en YAML: use_tag,auto_deleted_tag
+-p, --push .......................... Hace un simple push
 -h, --help .......................... Ayuda
 
 [ ARCHIVO DE CONFIGURACION YAML ]
