@@ -1,5 +1,5 @@
 directory: dist
-repository: username/npm-deploy-branch
+repository: username/repo
 branch_local: main
 branch_remote: ghpages
 use_exec: true
