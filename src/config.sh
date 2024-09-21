@@ -87,7 +87,7 @@ ONLY_PUSH=''
 info() {
   cat << EOF
 [ COMANDOS CLI ]
--t, --tag ........................... Crea el tag especificado en local y remoto. Estructura recomendada: [Xmayor.Ymenor.Zbugfix]. Depedendecias en YAML: use_tag,auto_deleted_tag
+-t, --tag ........................... Crea el tag especificado en local y remoto. Estructura recomendada: [X_mayor.Y_menor.Z_bugfix]. Depedendecias en YAML: use_tag,auto_deleted_tag
 -p, --push .......................... Hace un simple push
 -h, --help .......................... Ayuda
 

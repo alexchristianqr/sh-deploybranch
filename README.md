@@ -2,21 +2,30 @@
 
 Automatiza el despliegue de ramas de Git en cualquier entorno. Especificamente diseñado para crear tags y release.
 
-## Como usarlo con npm
+## Instalación
 ```bash
-npm sh-deploybranch  --help
-npm sh-deploybranch  --tag="1.0.0"
-npm sh-deploybranch  --push
+npm install sh-deploybranch
+```
+
+## Modo de uso
+```bash
+npm sh-deploybranch --help
+npm sh-deploybranch --tag="1.0.0"
+npm sh-deploybranch --push
 ```
 
 ## Documentación
 ```bash
+----------------
 [ COMANDOS CLI ]
+----------------
 -t, --tag ........................... Crea el tag especificado en local y remoto. Estructura recomendada: [Xmayor.Ymenor.Zbugfix]. Depedendecias en YAML: use_tag,auto_deleted_tag
 -p, --push .......................... Hace un simple push
 -h, --help .......................... Ayuda
 
+---------------------------------
 [ ARCHIVO DE CONFIGURACION YAML ]
+---------------------------------
 repository .......................... Repositorio git donde se alojará el proyecto.
 branch_local ........................ Rama local desde la cual se realizará el despliegue.
 branch_remote ....................... Rama remota donde se desplegará el proyecto.
@@ -26,11 +35,8 @@ exec ................................ Comando de compilación que se ejecutará 
 use_tag ............................. Indica si esta usando tag en el despliegue. Por defecto: true
 auto_deleted_tag .................... Indica si se debe eliminar automáticamente el último tag registrado antes de crear uno nuevo. Por defecto: true
 
+-----------------
 [ DOCUMENTACION ]
-Repositorio GitHub: https://github.com/alexchristianqr/npm-sh-deploybranch 
-
-[ AUTOR ]
-Usuario: Alex Christian
-Email: alexchristianqr@gmail.com
-GitHub: https://github.com/alexchristianqr
+-----------------
+Repositorio GitHub: https://github.com/alexchristianqr/npm-sh-deploybranch
 ```
